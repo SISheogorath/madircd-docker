@@ -1,17 +1,19 @@
 FROM debian:jessie
 
-MAINTAINER Knut Ahlers <knut@ahlers.me>
-
-ADD https://github.com/inspircd/inspircd/archive/v2.0.18.tar.gz /src/
+MAINTAINER Sheogorath <sheogorath@shivering-isles.com>
 
 RUN apt-get update && \
-    apt-get install -y build-essential libssl-dev libssl1.0.0 openssl pkg-config && \
+    apt-get install -y build-essential git libgnutls28-dev \
+	gnutls-bin pkg-config libssl1.0.0 libssl-dev openssl \
+	libcrypt-ssleay-perl libio-socket-ssl-perl libwww-perl \
+	libgeoip1 libgeoip-dev geoip-database geoip-bin pkg-config \
+	libpcre3 libpcre3-dev && \
     useradd -u 10000 -d /inspircd/ inspircd && \
-    cd /src && \
-    tar -xzf *.tar.gz && \
-    ln -sf inspircd-* inspircd && \
+    mkdir -p /src && \
+	cd /src && \
+    git clone https://github.com/Shivering-Isles/inspircd.git inspircd -b insp20 && \
     cd /src/inspircd && \
-    ./configure --disable-interactive --prefix=/inspircd/ --uid 10000 --enable-openssl && \
+    ./configure --disable-interactive --prefix=/inspircd/ --uid 10000 --enable-openssl --enable-gnutls && \
     make && make install && \
     apt-get purge -y build-essential
 

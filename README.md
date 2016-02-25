@@ -1,6 +1,6 @@
-# luzifer/inspircd Dockerfile
+# madircd/madircd Dockerfile
 
-This repository contains **Dockerfile** of [InspIRCd](http://www.inspircd.org/) for [Docker](https://www.docker.com/)'s [automated build](https://registry.hub.docker.com/u/luzifer/inspircd/) published to the public [Docker Hub Registry](https://registry.hub.docker.com/).
+This repository contains **Dockerfile** of [MadIRCd](https://git.byteturtle.eu/MadIRC/MadIRCd) a fork of [InspIRCd](http://www.inspircd.org/) for [Docker](https://www.docker.com/)'s [automated build](https://registry.hub.docker.com/u/sheogorath/madircd/) published to the public [Docker Hub Registry](https://registry.hub.docker.com/).
 
 ## Base Docker Image
 
@@ -10,16 +10,16 @@ This repository contains **Dockerfile** of [InspIRCd](http://www.inspircd.org/) 
 
 1. Install [Docker](https://www.docker.com/).
 
-2. Download [automated build](https://registry.hub.docker.com/u/luzifer/inspircd/) from public [Docker Hub Registry](https://registry.hub.docker.com/): `docker pull luzifer/inspircd`
+2. Download [automated build](https://registry.hub.docker.com/u/sheogorath/madircd/) from public [Docker Hub Registry](https://registry.hub.docker.com/): `docker pull luzifer/inspircd`
 
 ## Usage
 
-Create a directory containing the configuration for the [InspIRCd](http://www.inspircd.org/) with at least the [inspircd.conf](https://github.com/inspircd/inspircd/blob/master/docs/conf/inspircd.conf.example)
+Create a directory containing the configuration for the [MadIRCd](https://git.byteturtle.eu/MadIRC/MadIRCd) with at least the [inspircd.conf](https://github.com/inspircd/inspircd/blob/master/docs/conf/inspircd.conf.example)
 
 Then launch it with your configuration:
 
 ```
-docker run -d -p 6667:6667 -v /home/myuser/config:/inspircd/conf luzifer/inspircd
+docker run -d -p 6667:6667 -v /home/myuser/config:/inspircd/conf sheogorath/madircd
 ```
 
 Easy!
