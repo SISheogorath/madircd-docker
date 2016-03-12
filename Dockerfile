@@ -15,7 +15,8 @@ RUN apt-get update && \
     cd /src/inspircd && \
     ./configure --disable-interactive --prefix=/inspircd/ --uid 10000 --enable-openssl --enable-gnutls && \
     make && make install && \
-    apt-get purge -y build-essential
+    apt-get purge -y build-essential && \
+	apt-get autoremove -y
 
 VOLUME ["/inspircd/conf"]
 
