@@ -10,7 +10,7 @@ This repository contains **Dockerfile** of [MadIRCd](https://git.byteturtle.eu/M
 
 1. Install [Docker](https://www.docker.com/).
 
-2. Download [automated build](https://registry.hub.docker.com/u/sheogorath/madircd/) from public [Docker Hub Registry](https://registry.hub.docker.com/): `docker pull luzifer/inspircd`
+2. Download [automated build](https://registry.hub.docker.com/u/sheogorath/madircd/) from public [Docker Hub Registry](https://registry.hub.docker.com/): `docker pull sheogorath/madircd`
 
 ## Usage
 
