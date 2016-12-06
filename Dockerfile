@@ -8,19 +8,21 @@ RUN apt-get update && \
 	libcrypt-ssleay-perl libio-socket-ssl-perl libwww-perl \
 	libgeoip1 libgeoip-dev geoip-database geoip-bin pkg-config \
 	libpcre3 libpcre3-dev && \
-    useradd -u 10000 -d /inspircd/ inspircd && \
+    useradd -u 10000 -d /madircd/ madircd && \
     mkdir -p /src && \
 	cd /src && \
-    git clone https://github.com/Shivering-Isles/inspircd.git inspircd -b insp20 && \
-    cd /src/inspircd && \
-    ./configure --disable-interactive --prefix=/inspircd/ --uid 10000 --enable-openssl --enable-gnutls && \
+    git clone https://github.com/MadIRCnet/madircd.git madircd -b insp20 && \
+    cd /src/madircd && \
+    ./configure --disable-interactive --prefix=/madircd/ --uid 10000 --enable-openssl --enable-gnutls && \
     make && make install && \
     apt-get purge -y build-essential && \
 	apt-get autoremove -y
 
-VOLUME ["/inspircd/conf"]
+VOLUME ["/madircd/conf"]
 
 EXPOSE 6667 6697
 
-ENTRYPOINT ["/inspircd/bin/inspircd"]
-CMD ["--runasroot", "--nofork"]
+USER madircd
+
+ENTRYPOINT ["/madircd/bin/inspircd"]
+CMD ["--nofork"]

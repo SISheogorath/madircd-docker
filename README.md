@@ -22,5 +22,8 @@ Then launch it with your configuration:
 docker run -d -p 6667:6667 -v /home/myuser/config:/inspircd/conf sheogorath/madircd
 ```
 
+There is also a nice blog article about our config management at MadIRC.
+https://www.shivering-isles.com/config-management-at-madirc/
+
 Easy!
 
